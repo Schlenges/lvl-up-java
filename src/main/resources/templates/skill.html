@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${skill.name}">Skill</title>
+</head>
+<body>
+    <h1 th:text="${skill.name}"">Skill</h1>
+
+    <h2>Battles</h2>
+    <div>
+        <ul>
+            <li th:each="battle:${skill.battles}" th:text="${battle.description}"></li>
+            <!-- update and delete button -->
+        </ul>
+    </div>
+
+</body>
+</html>

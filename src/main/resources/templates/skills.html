@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Skills</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+</head>
+<body>
+    <header id="header">
+        <h1>Welcome, hero!</h1>
+    </header>
+
+    <div class="flex-container">
+        <p th:if="${#lists.isEmpty(skills)}" id="message">You have no current skills to work on</p>
+
+        <div th:each="skill:${skills}" class="skill-progress">
+            <div class="progressbar">
+                <span class="progress"
+                      th:style="'width:' + ${skill.curr_xp} + '%'"
+                      th:styleappend="${skill.curr_xp == 100} ? ';border-radius:5px' : ''" >
+                </span>
+            </div>
+            <span class="label" th:text="${skill.name}">s</span>
+            <span class="lvl-progress" th:text="'LVL' + ${skill.curr_lvl} + '/' + ${skill.max_lvl}"></span>
+        </div>
+    </div>
+
+</body>
+</html>

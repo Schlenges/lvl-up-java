@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Skills</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <form action="/skills" method="POST">
+            Skill Name:
+            <input type="text" name="name"/>
+            <br/>
+            Current Level:
+            <input type="number" name="currLvl" th:required="required" min="0" max="100"/>
+            <br/>
+            Max Level:
+            <input type="number" name="maxLvl" th:required="required" min="1" max="100"/>
+            <br/>
+            <input type="number" name="currXp"/>
+            <br/>
+            <input type="submit"/>
+            <!-- cancel button -->
+        </form>
+    </div>
+</body>
+</html>
