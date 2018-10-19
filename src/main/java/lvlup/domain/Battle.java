@@ -1,4 +1,4 @@
-package wad.domain;
+package lvlup.domain;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 

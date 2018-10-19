@@ -1,4 +1,4 @@
-package wad;
+package lvlup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package wad.controller;
+package lvlup.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,11 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import wad.domain.Battle;
-import wad.domain.Skill;
-import wad.repository.BattleRepository;
-import wad.repository.SkillRepository;
-import wad.service.BattleService;
+import lvlup.service.BattleService;
 
 @Controller
 public class BattleController {

@@ -1,7 +1,7 @@
-package wad.repository;
+package lvlup.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import wad.domain.Skill;
+import lvlup.domain.Skill;
 
 public interface SkillRepository extends JpaRepository<Skill, Long> {
 }

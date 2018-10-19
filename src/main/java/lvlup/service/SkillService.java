@@ -1,9 +1,9 @@
-package wad.service;
+package lvlup.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wad.domain.Skill;
-import wad.repository.SkillRepository;
+import lvlup.domain.Skill;
+import lvlup.repository.SkillRepository;
 
 import java.util.List;
 

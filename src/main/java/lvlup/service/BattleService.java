@@ -1,11 +1,11 @@
-package wad.service;
+package lvlup.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import wad.domain.Battle;
-import wad.domain.Skill;
-import wad.repository.BattleRepository;
-import wad.repository.SkillRepository;
+import lvlup.domain.Battle;
+import lvlup.domain.Skill;
+import lvlup.repository.BattleRepository;
+import lvlup.repository.SkillRepository;
 
 import javax.transaction.Transactional;
 
