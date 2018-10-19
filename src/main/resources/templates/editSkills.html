@@ -9,15 +9,13 @@
     <div class="container">
         <form action="/skills" method="POST">
             Skill Name:
-            <input type="text" name="name"/>
+            <input type="text" name="name" th:required="required"/>
             <br/>
             Current Level:
             <input type="number" name="currLvl" th:required="required" min="0" max="100"/>
             <br/>
             Max Level:
             <input type="number" name="maxLvl" th:required="required" min="1" max="100"/>
-            <br/>
-            <input type="number" name="currXp"/>
             <br/>
             <input type="submit"/>
             <!-- cancel button -->

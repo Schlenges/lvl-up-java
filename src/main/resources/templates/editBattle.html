@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <title>Edit Battle</title>
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css"/>
 </head>
 <body>
-<div class="container">
-    <form action="/battles" method="POST">
-        <input type="hidden" name="skillId" th:value="${skillId}"/>
-        Battle Description:
-        <input type="text" name="description"/>
-        <br/>
-        XP:
-        <input type="number" name="xp" th:required="required" min="1" max="100"/>
-        <br/>
-        <input type="submit"/>
-        <!-- cancel button -->
-    </form>
-</div>
+    <div class="container">
+        <form action="/battles" method="POST">
+            <input type="hidden" name="skillId" th:value="${skillId}"/>
+            Battle Description:
+            <input type="text" name="description" th:required="required"/>
+            <br/>
+            XP:
+            <input type="number" name="xp" th:required="required" min="1" max="100"/>
+            <br/>
+            <input type="submit"/>
+            <!-- cancel button -->
+        </form>
+    </div>
 </body>
 </html>

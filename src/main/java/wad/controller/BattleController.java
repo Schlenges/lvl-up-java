@@ -11,32 +11,18 @@ import wad.domain.Battle;
 import wad.domain.Skill;
 import wad.repository.BattleRepository;
 import wad.repository.SkillRepository;
-
-import javax.transaction.Transactional;
+import wad.service.BattleService;
 
 @Controller
 public class BattleController {
 
     @Autowired
-    private BattleRepository battleRepository;
-    @Autowired
-    private SkillRepository skillRepository;
+    private BattleService battleService;
 
-    // Create a new battle (and assign it to skill)
+    // Create a new battle
     @RequestMapping(value="/battles", method=RequestMethod.POST)
-    // @Transactional
     public String createBattle(@RequestParam Long skillId, @RequestParam String description, @RequestParam int xp){
-        Battle battle = new Battle();
-        battle.setDescription(description);
-        battle.setXp(xp);
-        // assign
-        Skill skill = skillRepository.findOne(skillId);
-        battle.setSkill(skill);
-        battleRepository.save(battle);
-
-        skill.getBattles().add(battle);
-        skillRepository.save(skill);
-
+        battleService.create(skillId, description, xp);
         return "redirect:/skills/" + skillId.toString();
     }
 
@@ -44,15 +30,6 @@ public class BattleController {
 
     // Delete a battle
         // references
-
-    // Update xp
-    @RequestMapping(value="/skills/{skillId}", method=RequestMethod.POST)
-    public String update(@PathVariable Long skillId, @RequestParam int xp){
-        Skill skill = skillRepository.findOne(skillId);
-        skill.setCurr_xp(skill.getCurr_xp() + xp);
-        skillRepository.save(skill);
-        return "redirect:/skills/" + skillId.toString();
-    }
 
     // Get the battles edit form
     @RequestMapping(value="/skills/{skillId}/addBattle", method=RequestMethod.GET)

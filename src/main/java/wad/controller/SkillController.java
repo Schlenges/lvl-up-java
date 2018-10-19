@@ -7,40 +7,40 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import wad.domain.Skill;
-import wad.repository.SkillRepository;
+import wad.service.SkillService;
 
 @Controller
 public class SkillController {
 
     @Autowired
-    private SkillRepository skillRepository;
+    private SkillService skillService;
 
     // List all skills
     @RequestMapping(value="/skills", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("skills", skillRepository.findAll());
+        model.addAttribute("skills", skillService.listAll());
         return "skills";
     }
 
     // Show one individual skill
     @RequestMapping(value="/skills/{skillId}", method=RequestMethod.GET)
     public String show(Model model, @PathVariable Long skillId){
-        model.addAttribute("skill", skillRepository.findOne(skillId));
+        model.addAttribute("skill", skillService.showOne(skillId));
         return "battles";
     }
 
     // Create a new skill
     @RequestMapping(value="/skills", method=RequestMethod.POST)
-    public String create(@RequestParam String name, @RequestParam int currLvl, @RequestParam int maxLvl, @RequestParam int currXp){
-        Skill skill = new Skill();
-        skill.setName(name);
-        skill.setCurr_lvl(currLvl);
-        skill.setMax_lvl(maxLvl);
-        skill.setCurr_xp(currXp);
-        skillRepository.save(skill);
-
+    public String create(@RequestParam String name, @RequestParam int currLvl, @RequestParam int maxLvl){
+        skillService.create(name, currLvl, maxLvl);
         return "redirect:/skills";
+    }
+
+    // Update skill xp
+    @RequestMapping(value="/skills/{skillId}", method=RequestMethod.POST)
+    public String update(@PathVariable Long skillId, @RequestParam int xp){
+        skillService.update(skillId, xp);
+        return "redirect:/skills/" + skillId.toString();
     }
 
     // Edit an existing skill
@@ -53,6 +53,3 @@ public class SkillController {
         return "editSkills";
     }
 }
-
-// level up implementation
-// progressbar boundary
