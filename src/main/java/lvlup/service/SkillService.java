@@ -33,6 +33,7 @@ public class SkillService {
     public void update(Long id, int xp){
         Skill skill = skillRepository.findOne(id);
         int currXp = skill.getCurr_xp() + xp;
+
         // check for level update
         if(currXp >= 100){
             if(skill.getCurr_lvl() < skill.getMax_lvl()){
