@@ -11,27 +11,37 @@
     </header>
 
     <div class="flex-container">
-        <p id="message" th:if="${#lists.isEmpty(skills)}">You have no current battles to fight</p>
 
-        <div th:each="skill : ${skills}" class="skill">
+        <div class="skill">
+            <!-- Skill progressbar -->
             <div class="skill-progress">
                 <div class="progressbar">
                     <span class="progress yellow"
-                          th:style="'width:' + ${skill.curr_xp} + ';'"
-                          th:styleappend="${skill.curr_xp == 100} ? ';border-radius:5px' : ''">
+                          th:classappend="${skill.curr_xp == 100} ? 'full'"
+                          th:style="'width:' + ${skill.curr_xp} + '%'">
                     </span>
                 </div>
                 <span class="label" th:text="${skill.name}"></span>
-                <span class="lvl-progress"th:text="'LVL' + ${skill.curr_lvl} + '/' + ${skill.max_lvl}"></span>
+                <span class="lvl-progress" th:text="'LVL' + ${skill.curr_lvl} + '/' + ${skill.max_lvl}"></span>
             </div>
-            <div th:if="${not#lists.isEmpty(skill.battles)}" class="battles">
+
+            <!-- If no battles exist, show message: -->
+            <p id="message" th:if="${#lists.isEmpty(skill.battles)}">You have no current battles to fight</p>
+
+            <!-- Battles -->
+            <div class="battles">
                 <div th:each="battle : ${skill.battles}" class="battle">
-                    <!--update button-->
+                    <form th:action="@{/skills/{skillId}(skillId=${skill.id})}" method="POST">
+                        <input type="hidden" name="xp" th:value="${battle.xp}"/>
+                        <button type="submit">+</button>
+                    </form>
                     <span class="battle-name" th:text="${battle.description}"></span>
-                    <span class="xp" th:text="${battle.xp}"></span>
+                    <span class="xp" th:text="${battle.xp}+'XP'"></span>
                 </div>
             </div>
+            <a class="btn addSkill" th:href="@{/skills/{skillId}/addBattle(skillId=${skill.id})}">Add battle</a>
         </div>
+
     </div>
 
 

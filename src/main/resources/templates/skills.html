@@ -11,18 +11,22 @@
     </header>
 
     <div class="flex-container">
-        <p th:if="${#lists.isEmpty(skills)}" id="message">You have no current skills to work on</p>
+        <!-- If no skills exist, show message: -->
+        <p th:if="${#lists.isEmpty(skills)}" id="message">You currently have no skills to work on</p>
 
+        <!-- Skill progressbar and info -->
         <div th:each="skill:${skills}" class="skill-progress">
             <div class="progressbar">
                 <span class="progress"
-                      th:style="'width:' + ${skill.curr_xp} + '%'"
-                      th:styleappend="${skill.curr_xp == 100} ? ';border-radius:5px' : ''" >
+                      th:classappend="${skill.curr_xp == 100} ? 'full'"
+                      th:style="'width:' + ${skill.curr_xp} + '%'">
                 </span>
             </div>
-            <span class="label" th:text="${skill.name}">s</span>
+            <span class="label"><a th:href="@{/skills/{skillId}(skillId=${skill.id})}" th:text="${skill.name}"></a></span>
             <span class="lvl-progress" th:text="'LVL' + ${skill.curr_lvl} + '/' + ${skill.max_lvl}"></span>
         </div>
+
+        <a class="btn addSkill" href="/addSkill">Add a skill</a>
     </div>
 
 </body>

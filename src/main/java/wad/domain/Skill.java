@@ -17,9 +17,6 @@ public class Skill extends AbstractPersistable<Long> {
     private int curr_xp;
     @OneToMany
     private List<Battle> battles;
-    // user
-    // delete cascade
-
 
     public String getName() {
         return name;

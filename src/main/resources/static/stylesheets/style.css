@@ -188,3 +188,19 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+/* new */
+.flex-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.addSkill{
+    align-self: start;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.full{
+    border-radius: 5px;
+}
