@@ -27,4 +27,10 @@ To start the application, run:
 
 The application starts with some sample data, but uses [H2](https://www.h2database.com/html/main.html) as an in-memory database and won't store anything to disk.
 
-To try the application, open **localhost:8080/skills** to see an overview and to add new skills. Klick on the name of a skill to add battles to it or to update your XP.
+To try the application, open **localhost:8080/skills** to see an overview and to add new skills. 
+
+![skills](./screenshots/img1.png)
+
+Klick on the name of a skill to add battles to it or to update your XP.
+
+![battles](./screenshots/img2.png)
