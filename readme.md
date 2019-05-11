@@ -2,7 +2,7 @@
 
 ## About
 
-A trimmed down version of the original [Lvl Up application](https://github.com/Schlenges/lvl-up) using Java, SpringBoot and Thymeleaf.
+A trimmed down version of the original [Lvl Up application](https://github.com/Schlenges/lvl-up) using Java, Spring Boot and Thymeleaf.
 
 ## Installation
 
